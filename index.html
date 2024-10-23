@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Valyuta Konvertori</title>
+    <style>
+        #valyutaKonvertori {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        input, select {
+            margin: 10px 0;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="valyutaKonvertori">
+        <h2>Valyuta Konvertori</h2>
+        <input type="number" id="miqdor" placeholder="Miqdorni kiriting">
+        <select id="valyuta1">
+            <option value="1">USD</option>
+            <option value="10800">UZS</option>
+            <option value="0.85">EUR</option>
+        </select>
+        <select id="valyuta2">
+            <option value="10800">UZS</option>
+            <option value="1">USD</option>
+            <option value="0.85">EUR</option>
+        </select>
+        <button onclick="konvertatsiya()">Konvertatsiya qilish</button>
+        <h3>Natija: <span id="natija"></span></h3>
+    </div>
+
+    <script>
+        function konvertatsiya() {
+            let miqdor = parseFloat(document.getElementById('miqdor').value);
+            let valyuta1 = parseFloat(document.getElementById('valyuta1').value);
+            let valyuta2 = parseFloat(document.getElementById('valyuta2').value);
+
+            let natija = (miqdor * valyuta1) / valyuta2;
+            document.getElementById('natija').textContent = natija.toFixed(2);
+        }
+    </script>
+</body>
+</html>
